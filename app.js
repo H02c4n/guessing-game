@@ -20,7 +20,7 @@ let btn = document.querySelectorAll(".btn");
 let life = 5;
 
 const randomNumber = Math.ceil(Math.random() * max);
-console.log(randomNumber);
+//console.log(randomNumber);
 
 for (let i = 0; i < btn.length; i++) {
   //console.log(btn[i].innerHTML);
@@ -29,6 +29,9 @@ for (let i = 0; i < btn.length; i++) {
     if (life < 0) {
       message("Game Over", "red");
       msgText.insertAdjacentHTML("afterend", newGame);
+      for (let i = 0; i < 100; i++) {
+        btn[i].disabled = true;
+      }
 
       const btnNew = document.querySelector(".newGame");
       btnNew.addEventListener("click", function () {
@@ -38,6 +41,19 @@ for (let i = 0; i < btn.length; i++) {
       if (e.target.value == randomNumber) {
         message("Tebrikler", "green");
         msgText.insertAdjacentHTML("afterend", newGame);
+
+        for (let i = 0; i < e.target.value - 1; i++) {
+          btn[i].style.display = "none";
+        }
+
+        for (let i = e.target.value; i < max; i++) {
+          btn[i].style.display = "none";
+        }
+
+        btn[i].style.width = "50vw";
+        btn[i].style.height = "50vh";
+        btn[i].disabled = true;
+
         const btnNew = document.querySelector(".newGame");
         btnNew.addEventListener("click", function () {
           window.location.reload();
