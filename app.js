@@ -20,7 +20,7 @@ let btn = document.querySelectorAll(".btn");
 let life = 5;
 
 const randomNumber = Math.ceil(Math.random() * max);
-console.log(randomNumber);
+//console.log(randomNumber);
 
 for (let i = 0; i < btn.length; i++) {
   //console.log(btn[i].innerHTML);
