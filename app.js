@@ -37,6 +37,11 @@ for (let i = 0; i < btn.length; i++) {
     } else {
       if (e.target.value == randomNumber) {
         message("Tebrikler", "green");
+        msgText.insertAdjacentHTML("afterend", newGame);
+        const btnNew = document.querySelector(".newGame");
+        btnNew.addEventListener("click", function () {
+          window.location.reload();
+        });
         btn[i].style.backgroundColor = "green";
         btn[i].style.color = "white";
       } else if (e.target.value < randomNumber) {
